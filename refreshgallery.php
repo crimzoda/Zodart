@@ -12,7 +12,7 @@
 	$addDisplayQuery = "INSERT INTO display(title, url, author) $selectedItems";
 	/*removes the displayed items from the gallery to avoid repeat
 	submissions being displayed*/
-    $removeGalleryItems = "DELETE $selectedItems"
+    $removeGalleryItems = "DELETE $selectedItems";
 
 	if (mysqli_query($conn, $clearDisplayQuery))
 	{
