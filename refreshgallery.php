@@ -10,6 +10,8 @@
     $selectedItems = mysqli_query($conn, "SELECT title, url, author FROM gallery ORDER BY RAND() LIMIT 3");
     //3 rows are randomly inserted into the display table from the gallery table
 	$addDisplayQuery = "INSERT INTO display(title, url, author) $selectedItems";
+	/*removes the displayed items from the gallery to avoid repeat
+	submissions being displayed*/
     $removeGalleryItems = "DELETE $selectedItems"
 
 	if (mysqli_query($conn, $clearDisplayQuery))
