@@ -71,16 +71,9 @@
                 echo "Image URL is valid!";
 
                 //finally the details are inserted into the database
-                $sql = "INSERT INTO `gallery` (`title`, `url`, `author`) VALUES ('$title', '$url', '$author')";
-    
-                if (mysqli_query($conn, $sql))
-                {
-    
-                }
-                else
-                {
-                    echo "Oh no something happened, it didn't work..." . mysqli_error($conn);
-                }
+                $sql_stmnt = $conn->prepare("INSERT INTO `gallery` (`title`, `url`, `author`) VALUES (?, ?, ?)");
+				$sql_stmnt->bind_param('sss', $title, $url, $author);
+				$sql_stmnt->execute();
 			}
 			
 			mysqli_close($conn);
