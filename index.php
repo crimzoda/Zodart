@@ -9,7 +9,7 @@
         arguments passed*/
 		function getImages($id, $type)
 		{
-			$conn = new mysqli("localhost", "username", "password", 'table') or die(mysqli_connect_error());
+			$conn = new mysqli("localhost", "username", "password", 'db') or die(mysqli_connect_error());
 			
 			if ($conn->connect_error)
 			{
@@ -52,7 +52,7 @@
         //upload function will insert the users submission into the database table
 		function upload()
 		{
-			$conn = mysqli_connect("localhost", "username", "password", 'table') or die(mysqli_connect_error());
+			$conn = mysqli_connect("localhost", "username", "password", 'db') or die(mysqli_connect_error());
 	
 			if ($conn == false)
 			{
